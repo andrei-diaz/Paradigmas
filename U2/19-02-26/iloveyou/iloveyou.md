@@ -1,0 +1,1 @@
+chmod +x build_iloveyou.sh && ./build_iloveyou.sh
