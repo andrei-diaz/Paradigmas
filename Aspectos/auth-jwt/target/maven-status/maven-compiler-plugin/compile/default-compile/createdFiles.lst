@@ -1,0 +1,6 @@
+com/paradigmas/controller/AuthController.class
+com/paradigmas/service/AuthService.class
+com/paradigmas/aspect/SecurityAspect.class
+com/paradigmas/App.class
+com/paradigmas/security/JwtUtil.class
+com/paradigmas/security/SecurityConfig.class

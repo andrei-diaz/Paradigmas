@@ -1,1 +1,4 @@
 rockyou.txt
+
+# API keys / credenciales
+Aspectos/sentinel-auth/src/main/resources/application.properties

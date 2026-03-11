@@ -1,0 +1,6 @@
+/Users/andreidiazrosario/Documents/School/Paradigmas/Aspectos/auth-jwt/src/main/java/com/paradigmas/App.java
+/Users/andreidiazrosario/Documents/School/Paradigmas/Aspectos/auth-jwt/src/main/java/com/paradigmas/aspect/SecurityAspect.java
+/Users/andreidiazrosario/Documents/School/Paradigmas/Aspectos/auth-jwt/src/main/java/com/paradigmas/controller/AuthController.java
+/Users/andreidiazrosario/Documents/School/Paradigmas/Aspectos/auth-jwt/src/main/java/com/paradigmas/security/JwtUtil.java
+/Users/andreidiazrosario/Documents/School/Paradigmas/Aspectos/auth-jwt/src/main/java/com/paradigmas/security/SecurityConfig.java
+/Users/andreidiazrosario/Documents/School/Paradigmas/Aspectos/auth-jwt/src/main/java/com/paradigmas/service/AuthService.java
