@@ -1,0 +1,7 @@
+/Users/andreidiazrosario/Documents/School/Paradigmas/Servicios/hospital-soa/auth-service/src/main/java/com/hospital/auth/AuthServiceApplication.java
+/Users/andreidiazrosario/Documents/School/Paradigmas/Servicios/hospital-soa/auth-service/src/main/java/com/hospital/auth/model/User.java
+/Users/andreidiazrosario/Documents/School/Paradigmas/Servicios/hospital-soa/auth-service/src/main/java/com/hospital/auth/model/AuthRequest.java
+/Users/andreidiazrosario/Documents/School/Paradigmas/Servicios/hospital-soa/auth-service/src/main/java/com/hospital/auth/config/JwtUtil.java
+/Users/andreidiazrosario/Documents/School/Paradigmas/Servicios/hospital-soa/auth-service/src/main/java/com/hospital/auth/controller/AuthController.java
+/Users/andreidiazrosario/Documents/School/Paradigmas/Servicios/hospital-soa/auth-service/src/main/java/com/hospital/auth/model/AuthResponse.java
+/Users/andreidiazrosario/Documents/School/Paradigmas/Servicios/hospital-soa/auth-service/src/main/java/com/hospital/auth/service/AuthService.java

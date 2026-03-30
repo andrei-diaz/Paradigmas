@@ -1,0 +1,10 @@
+com/hospital/gateway/dto/RegistrarPacienteResponseDTO.class
+com/hospital/gateway/controller/CompositeController.class
+com/hospital/gateway/dto/RegistrarPacienteRequestDTO.class
+com/hospital/gateway/dto/LoginRequestDTO.class
+com/hospital/gateway/controller/GatewayController.class
+com/hospital/gateway/config/RestTemplateConfig.class
+com/hospital/gateway/service/GatewayService.class
+com/hospital/gateway/dto/LoginDashboardResponseDTO.class
+com/hospital/gateway/HospitalGatewayApplication.class
+com/hospital/gateway/dto/PatientDTO.class
