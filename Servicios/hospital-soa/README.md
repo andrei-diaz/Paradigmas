@@ -233,37 +233,92 @@ curl -X POST http://localhost:8080/api/compuesto/login-dashboard \
 
 Respuesta incluye: token JWT + lista de pacientes + lista de notificaciones.
 
+
 ---
 
-## Estructura del Proyecto
+## Aspectos AOP en el Gateway
 
+El gateway implementa 3 aspectos que se ejecutan de forma transparente sin modificar los controladores.
+
+> **Por que en el gateway?** En SOA, los microservicios son cajas negras que no se pueden modificar.
+> El gateway es el unico punto de entrada, por eso es donde se aplican los aspectos de seguridad y monitoreo.
+
+### Aspectos implementados
+
+| Aspecto | Archivo | Que hace |
+|---|---|---|
+| `BruteForceAspect` | `aspect/BruteForceAspect.java` | Detecta y bloquea ataques de fuerza bruta en el login |
+| `LoggingAspect` | `aspect/LoggingAspect.java` | Loguea cada request/response que pasa por el gateway |
+| `PerformanceAspect` | `aspect/PerformanceAspect.java` | Mide el tiempo de las operaciones compuestas |
+
+---
+
+## Prueba de Fuerza Bruta (BruteForceAspect)
+
+Simula un atacante que intenta adivinar la contrasena con intentos repetidos.
+
+**Paso 1 — Hacer 3 intentos fallidos con contrasena incorrecta:**
+```bash
+curl -X POST http://localhost:8080/api/auth/login \
+  -H "Content-Type: application/json" \
+  -d '{"username":"admin","password":"INCORRECTA"}'
 ```
-hospital-soa/
-├── auth-service/
-│   └── src/main/java/com/hospital/auth/
-│       ├── config/JwtUtil.java           # Generacion y validacion de JWT
-│       ├── controller/AuthController.java
-│       ├── model/ (User, AuthRequest, AuthResponse)
-│       └── service/AuthService.java      # Usuarios en memoria
-├── patient-service/
-│   └── src/main/java/com/hospital/patient/
-│       ├── controller/PatientController.java
-│       ├── dto/PatientDTO.java            # DTO para recibir datos
-│       ├── model/Patient.java
-│       └── service/PatientService.java    # Almacenamiento en memoria
-├── notification-service/
-│   └── src/main/java/com/hospital/notification/
-│       ├── controller/NotificationController.java
-│       ├── dto/NotificationRequestDTO.java
-│       ├── model/Notification.java
-│       └── service/NotificationService.java
-└── hospital-gateway/
-    └── src/main/java/com/hospital/gateway/
-        ├── config/RestTemplateConfig.java
-        ├── controller/
-        │   ├── GatewayController.java    # Endpoints individuales con proxy
-        │   └── CompositeController.java  # Endpoints compuestos
-        ├── dto/ (LoginRequestDTO, PatientDTO, RegistrarPacienteRequestDTO,
-        │         RegistrarPacienteResponseDTO, LoginDashboardResponseDTO)
-        └── service/GatewayService.java   # Comunicacion via RestTemplate
+Repetir este comando 3 veces. Cada vez responde `401 Unauthorized`.
+
+**Lo que se ve en los logs del gateway:**
 ```
+[LOGIN]       Intento de login desde IP: 127.0.0.1
+[BRUTE FORCE] Intento fallido 1/3 - IP: 127.0.0.1
+[LOGIN]       Intento de login desde IP: 127.0.0.1
+[BRUTE FORCE] Intento fallido 2/3 - IP: 127.0.0.1
+[LOGIN]       Intento de login desde IP: 127.0.0.1
+[BRUTE FORCE] Intento fallido 3/3 - IP: 127.0.0.1
+[BRUTE FORCE] *** ALERTA: IP 127.0.0.1 BLOQUEADA por fuerza bruta ***
+```
+
+**Paso 2 — Intentar de nuevo (con cualquier contrasena, incluso la correcta):**
+```bash
+curl -X POST http://localhost:8080/api/auth/login \
+  -H "Content-Type: application/json" \
+  -d '{"username":"admin","password":"admin123"}'
+```
+
+**Respuesta esperada (429 Too Many Requests):**
+```json
+{
+  "status": 429,
+  "error": "Too Many Requests",
+  "message": "IP bloqueada por multiples intentos fallidos. Contacte al administrador."
+}
+```
+El auth-service nunca recibe esta peticion. El aspecto la bloquea en el gateway.
+
+**Paso 3 — Resetear el bloqueo para seguir probando:**
+```bash
+curl -X DELETE http://localhost:8080/api/brute-force/reset
+```
+Respuesta:
+```json
+{ "mensaje": "Bloqueos reseteados. Todas las IPs desbloqueadas." }
+```
+Ahora puedes volver a hacer login normalmente.
+
+---
+
+## Prueba de Performance y Logging (PerformanceAspect + LoggingAspect)
+
+Llamar a cualquier endpoint compuesto:
+```bash
+curl -X POST http://localhost:8080/api/compuesto/login-dashboard \
+  -H "Content-Type: application/json" \
+  -d '{"username":"admin","password":"admin123"}'
+```
+
+**Lo que se ve en los logs del gateway:**
+```
+[REQUEST]     POST /api/compuesto/login-dashboard -> CompositeController.loginDashboard()
+[PERFORMANCE] Iniciando operacion compuesta: 'loginDashboard' (llama a 3 microservicios)
+[PERFORMANCE] 'loginDashboard' completado en 43ms
+[RESPONSE]    Status: 200 OK
+```
+

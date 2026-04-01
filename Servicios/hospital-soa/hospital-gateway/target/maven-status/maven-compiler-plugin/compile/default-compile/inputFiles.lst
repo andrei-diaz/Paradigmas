@@ -1,10 +1,12 @@
 /Users/andreidiazrosario/Documents/School/Paradigmas/Servicios/hospital-soa/hospital-gateway/src/main/java/com/hospital/gateway/dto/LoginRequestDTO.java
 /Users/andreidiazrosario/Documents/School/Paradigmas/Servicios/hospital-soa/hospital-gateway/src/main/java/com/hospital/gateway/controller/GatewayController.java
 /Users/andreidiazrosario/Documents/School/Paradigmas/Servicios/hospital-soa/hospital-gateway/src/main/java/com/hospital/gateway/config/RestTemplateConfig.java
+/Users/andreidiazrosario/Documents/School/Paradigmas/Servicios/hospital-soa/hospital-gateway/src/main/java/com/hospital/gateway/aspect/BruteForceAspect.java
 /Users/andreidiazrosario/Documents/School/Paradigmas/Servicios/hospital-soa/hospital-gateway/src/main/java/com/hospital/gateway/dto/LoginDashboardResponseDTO.java
 /Users/andreidiazrosario/Documents/School/Paradigmas/Servicios/hospital-soa/hospital-gateway/src/main/java/com/hospital/gateway/dto/RegistrarPacienteRequestDTO.java
 /Users/andreidiazrosario/Documents/School/Paradigmas/Servicios/hospital-soa/hospital-gateway/src/main/java/com/hospital/gateway/controller/CompositeController.java
 /Users/andreidiazrosario/Documents/School/Paradigmas/Servicios/hospital-soa/hospital-gateway/src/main/java/com/hospital/gateway/service/GatewayService.java
 /Users/andreidiazrosario/Documents/School/Paradigmas/Servicios/hospital-soa/hospital-gateway/src/main/java/com/hospital/gateway/dto/RegistrarPacienteResponseDTO.java
 /Users/andreidiazrosario/Documents/School/Paradigmas/Servicios/hospital-soa/hospital-gateway/src/main/java/com/hospital/gateway/dto/PatientDTO.java
+/Users/andreidiazrosario/Documents/School/Paradigmas/Servicios/hospital-soa/hospital-gateway/src/main/java/com/hospital/gateway/aspect/LoggingAspect.java
 /Users/andreidiazrosario/Documents/School/Paradigmas/Servicios/hospital-soa/hospital-gateway/src/main/java/com/hospital/gateway/HospitalGatewayApplication.java

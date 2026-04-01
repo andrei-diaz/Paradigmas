@@ -1,5 +1,6 @@
 package com.hospital.gateway.controller;
 
+import com.hospital.gateway.aspect.BruteForceAspect;
 import com.hospital.gateway.dto.LoginRequestDTO;
 import com.hospital.gateway.dto.PatientDTO;
 import com.hospital.gateway.service.GatewayService;
@@ -16,6 +17,9 @@ public class GatewayController {
 
     @Autowired
     private GatewayService gatewayService;
+
+    @Autowired
+    private BruteForceAspect bruteForceAspect;
 
     // =====================
     // AUTH ENDPOINTS
@@ -109,6 +113,16 @@ public class GatewayController {
                 "patient-service", "http://localhost:8082/patients/health",
                 "notification-service", "http://localhost:8083/notifications/health"
         ));
+    }
+
+    // =====================
+    // BRUTE FORCE RESET (solo para demo)
+    // =====================
+
+    @DeleteMapping("/brute-force/reset")
+    public ResponseEntity<?> resetBruteForce() {
+        bruteForceAspect.resetear();
+        return ResponseEntity.ok(Map.of("mensaje", "Bloqueos reseteados. Todas las IPs desbloqueadas."));
     }
 
     private ResponseEntity<?> unauthorized() {

@@ -1,0 +1,28 @@
+<configuration>
+
+    <!-- LOG 1: Fuerza bruta - guarda alertas de IPs bloqueadas -->
+    <appender name="BRUTE_FORCE_FILE" class="ch.qos.logback.core.FileAppender">
+        <file>logs/brute-force.log</file>
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss} %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <!-- LOG 2: Requests - guarda cada peticion que entra al gateway -->
+    <appender name="REQUESTS_FILE" class="ch.qos.logback.core.FileAppender">
+        <file>logs/gateway-requests.log</file>
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss} %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <!-- Cada logger apunta a su archivo. El nombre debe coincidir con el Logger en el aspecto -->
+    <logger name="BruteForce" level="INFO" additivity="false">
+        <appender-ref ref="BRUTE_FORCE_FILE" />
+    </logger>
+
+    <logger name="GatewayLog" level="INFO" additivity="false">
+        <appender-ref ref="REQUESTS_FILE" />
+    </logger>
+
+</configuration>

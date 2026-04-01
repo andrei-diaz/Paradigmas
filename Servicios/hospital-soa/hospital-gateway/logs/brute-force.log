@@ -1,0 +1,26 @@
+2026-03-24 17:20:36 [LOGIN] Intento de login desde IP: 0:0:0:0:0:0:0:1
+2026-03-24 17:20:36 [BRUTE FORCE] Intento fallido 1/3 - IP: 0:0:0:0:0:0:0:1
+2026-03-24 17:20:37 [LOGIN] Intento de login desde IP: 0:0:0:0:0:0:0:1
+2026-03-24 17:20:37 [BRUTE FORCE] Intento fallido 2/3 - IP: 0:0:0:0:0:0:0:1
+2026-03-24 17:20:38 [LOGIN] Intento de login desde IP: 0:0:0:0:0:0:0:1
+2026-03-24 17:20:38 [BRUTE FORCE] Intento fallido 3/3 - IP: 0:0:0:0:0:0:0:1
+2026-03-24 17:20:38 [BRUTE FORCE] *** ALERTA: IP 0:0:0:0:0:0:0:1 BLOQUEADA por fuerza bruta ***
+2026-03-24 17:20:39 [BRUTE FORCE] IP bloqueada intenta acceder de nuevo: 0:0:0:0:0:0:0:1
+2026-03-24 17:20:52 [BRUTE FORCE] IP bloqueada intenta acceder de nuevo: 0:0:0:0:0:0:0:1
+2026-03-24 17:20:53 [BRUTE FORCE] IP bloqueada intenta acceder de nuevo: 0:0:0:0:0:0:0:1
+2026-03-24 17:20:54 [BRUTE FORCE] IP bloqueada intenta acceder de nuevo: 0:0:0:0:0:0:0:1
+2026-03-24 17:21:48 [BRUTE FORCE] Todos los bloqueos han sido reseteados.
+2026-03-24 17:21:53 [LOGIN] Intento de login desde IP: 0:0:0:0:0:0:0:1
+2026-03-24 17:21:53 [LOGIN] Login exitoso - IP: 0:0:0:0:0:0:0:1 | Contador reseteado
+2026-03-24 17:24:56 [LOGIN] Intento de login desde IP: 0:0:0:0:0:0:0:1
+2026-03-24 17:24:56 [BRUTE FORCE] Intento fallido 1/3 - IP: 0:0:0:0:0:0:0:1
+2026-03-24 17:25:14 [LOGIN] Intento de login desde IP: 0:0:0:0:0:0:0:1
+2026-03-24 17:25:14 [BRUTE FORCE] Intento fallido 2/3 - IP: 0:0:0:0:0:0:0:1
+2026-03-24 17:25:15 [LOGIN] Intento de login desde IP: 0:0:0:0:0:0:0:1
+2026-03-24 17:25:15 [BRUTE FORCE] Intento fallido 3/3 - IP: 0:0:0:0:0:0:0:1
+2026-03-24 17:25:15 [BRUTE FORCE] *** ALERTA: IP 0:0:0:0:0:0:0:1 BLOQUEADA por fuerza bruta ***
+2026-03-24 17:25:16 [BRUTE FORCE] IP bloqueada intenta acceder de nuevo: 0:0:0:0:0:0:0:1
+2026-03-24 17:25:47 [BRUTE FORCE] IP bloqueada intenta acceder de nuevo: 0:0:0:0:0:0:0:1
+2026-03-24 17:26:00 [BRUTE FORCE] Todos los bloqueos han sido reseteados.
+2026-03-24 17:26:09 [LOGIN] Intento de login desde IP: 0:0:0:0:0:0:0:1
+2026-03-24 17:26:09 [LOGIN] Login exitoso - IP: 0:0:0:0:0:0:0:1 | Contador reseteado
